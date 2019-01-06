@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=690,user-scalable=no">
+  <title>1-2</title>
+  <style>
+    *{ margin:0; padding:0;}
+    .app{ position: relative; width:690px; height:820px; margin:0 auto;background: #EFEAE7;padding: 50px 20px 0; box-sizing: border-box; font-family: "思源宋体 CN SemiBold"}
+    .app .content2{ width:100%; height:100%;box-sizing: border-box;}
+    .app .content2 .title{font-size:34px;color: #141414;text-align: center;}
+    .app .content2 .share-img-wrap{margin:30px auto;width:100%; height:436px;overflow: hidden}
+    .app .content2 .share-img{display: block; width:100%; font-size: 48px; color: #271400;}
+    .app .content2 .bottom{display: flex;justify-content: space-between;align-items: center; height:176px;}
+    .app .content2 .bottom .l{}
+    .tip{ font-size: 36px; background-color: #EFEAE7;}
+    .app .content2 .bottom .l .shibie{margin-top: 10px}
+    .app .content2 .bottom .l img{display: block}
+    .app .content2 .bottom .r img{display: block; width:133px;}
+    .font38{font-size: 38px}
+    .font28{font-size: 28px}
+    .font34{font-size: 34px}
+  </style>
+</head>
+<body>
+<div id="pic" class="app">
+  <div class="content2">
+    <div id="title" class="title">加载中</div>
+    <div class="share-img-wrap">
+      <img id="imgUrl" class="share-img" >
+    </div>
+    <div class="bottom">
+      <div class="l">
+        <div class="tip">群里热门·每日签语</div>
+        <img class="shibie" src="imgs/webwxgetmsgimg2.png" alt="">
+      </div>
+      <div class="r">
+        <img id="qrCode" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+<script language="JavaScript">
+
+    window.onload = function(){
+        console.log("load finish");
+    };
+
+    function getQueryString(name) {
+        var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) {
+            return decodeURI(r[2]);
+            // return URLDecoder.decode(r[2], "UTF-8");
+        }
+        return null;
+    }
+    document.getElementById('title').innerHTML = getQueryString('title');
+    document.getElementById('imgUrl').src = getQueryString('imgUrl');
+    document.getElementById('qrCode').src = getQueryString('qrCode');
+
+</script>
+</html>

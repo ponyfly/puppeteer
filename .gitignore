@@ -1,0 +1,6 @@
+.idea
+*/node_modules
+/node_modules/
+/koastudy/node_modules/
+/koastudy/puppeteer/music/歌词.txt
+/koastudy/puppeteer/book2pdf/books/

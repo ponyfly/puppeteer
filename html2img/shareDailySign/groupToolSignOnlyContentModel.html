@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=540,user-scalable=no">
+  <title>每日签语</title>
+  <style>
+    *{ margin:0; padding:0;}
+    .pic{ width:710px; padding:0 44px;box-sizing:border-box;font-size: 38px;line-height:60px;font-family: '方正颜宋';}
+  </style>
+</head>
+<body>
+<div id="pic" class="pic">
+  <div class="text"></div>
+</div>
+</body>
+<script>
+    window.onload = function(){
+        console.log("load finish");
+    };
+
+    function getQueryString(name) {
+        var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) {
+            return decodeURI(r[2]);
+            // return URLDecoder.decode(r[2], "UTF-8");
+        }
+        return null;
+    }
+    document.getElementById('pic').innerHTML = "“" + getQueryString('content') + "”";
+</script>
+</html>

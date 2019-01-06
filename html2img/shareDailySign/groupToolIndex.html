@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    *{ margin:0; padding:0;}
+    html, body{ height:100%;}
+    .font20{font-size: 20px}
+    .font37{font-size: 37px}
+    .font194{font-size: 194px}
+    .font35{font-size: 35px}
+    .font33{font-size: 33px}
+    .font28{font-size: 28px}
+    .font__fz--bold{font-family: '方正颜宋'}
+
+    #pic{ width:750px; height:100%; background-color: #eeeff0;display: flex;justify-content: center;align-items: center;}
+    .container{ margin:0 auto; width:690px; height:939px;overflow: hidden; background: url("./imgs/share_bg.png") 0 0/cover no-repeat;}
+    .module{margin-top:148px; height:145px;display: flex;justify-content: center;align-items: flex-start;}
+    .module>.col1{ height:100%;display: flex;flex-direction:column;justify-content: space-between; align-items: stretch;}
+    .module>.col1>.row2{}
+    .module>.col2{font-family: 'HelveticaNeue UltraLight';line-height: 130px;}
+    .module>.col3{ height:100%;display: flex;flex-direction:column;justify-content: space-between}
+    .module>.col1>.row1{width:38px;font-weight: bold;line-height: 1}
+    .module>.col3>.row1>.col1>.row1{font-weight: bold;}
+    .module>.col3>.row1>.col2>.row2{font-family: 'HelveticaNeue UltraLight';line-height: 1}
+    .module>.col3>.row2 {line-height: 1}
+    .module>.col3>.row2>span:last-child {font-weight: bold;}
+    .module2{margin-top:140px;font-size: 70px;text-align: center;}
+    .module3{ margin:0 auto;margin-top:68px; width:217px; height:217px;border-radius:50%; background-color: #000; color: #fff;line-height:217px;font-size: 52px;text-align: center;}
+
+  </style>
+</head>
+<body>
+<div id="pic">
+  <div class="container">
+    <div class="module">
+      <div class="col col1">
+        <div class="row row1 font37 font__fz--bold">{{todayInfo.gzYear}}年</div>
+        <div class="row row2 font20">{{todayInfo.Animal}}年</div>
+      </div>
+      <div class="col col2 font194">{{todayInfo.cDay}}</div>
+      <div class="col col3">
+        <div class="row row1">
+          <div class="col1">
+            <div class="row1 font35 font__fz--bold">{{todayInfo.cMonthCn}}月</div>
+          </div>
+          <div class="col2">
+            <span class="row1 font28">{{todayInfo.simpleMon}}.</span>
+            <span class="row2 font33">{{todayInfo.lYear}}</span>
+          </div>
+        </div>
+        <div class="row row2">
+          <span class="font28">{{todayInfo.simpleWeek}}. </span>
+          <span class="font33 font__fz--bold"> {{todayInfo.ncWeek}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="module2 font__fz--bold">
+      看看你的今日运签
+    </div>
+    <div class="module3 font__fz--bold">
+      求签
+    </div>
+  </div>
+</div>
+<script src="./js/vue.js"></script>
+<script src="./js/util-date.js"></script>
+<script>
+  new Vue({
+    data: {
+      todayInfo: todayInfo,
+    }
+  }).$mount('#pic')
+</script>
+</body>
+</html>

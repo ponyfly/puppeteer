@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=690,user-scalable=no">
+    <title>1-2</title>
+    <style>
+*{ margin:0; padding:0;}
+.app{font-family: "思源宋体 CN SemiBold"; position: relative; width:690px; height:820px; margin:0 auto;background: url("./imgs/share-cir.jpg") no-repeat}
+.app .date{position: absolute;top: 124px;width:100%;height: 94px;line-height:94px;text-align:center;font-size: 22px; color: #141414;font-weight: bold}
+.app .content{position: absolute; top:286px;left:98px;width:480px;font-size: 47px;line-height: 68px; color: #271400;}
+.app .nickname{position: absolute; top:541px;right: 86px;overflow:hidden;font-size: 26px;color: #3e3833;}
+.l{ position: absolute; left:49px;bottom: 84px;font-size: 36px; background-color: #EFEAE7;}
+.r{ width:136px; height:136px; background-color: #EFEAE7; position: absolute;bottom: 20px; right:46px;}
+.r img{display: block; width:133px;}
+    </style>
+</head>
+<body>
+<div id="pic" class="app">
+    <div id="nowdate" class="date"></div>
+    <div id="content" class="content"></div>
+    <div class="nickname">For: <span id="nickname"></span></div>
+  <div class="l">
+    群里热门·每日签语
+  </div>
+      <div class="r">
+        <img id="qrCode" alt="">
+      </div>
+
+</div>
+</body>
+<script>
+    window.onload = function(){
+        console.log("load finish");
+    };
+
+    function getQueryString(name) {
+        var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) {
+            return decodeURI(r[2]);
+            // return URLDecoder.decode(r[2], "UTF-8");
+        }
+        return null;
+    }
+
+    document.getElementById('nowdate').innerHTML = getQueryString('nowdate');
+    document.getElementById('nickname').innerHTML = getQueryString('nickName');
+    document.getElementById('content').innerHTML = "“" + getQueryString('content') + "”";
+    document.getElementById('qrCode').src = getQueryString('qrCode');
+</script>
+</html>
